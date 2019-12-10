@@ -21,11 +21,6 @@ use yii\helpers\Url;
 
                 <div class="coupon-wrapper coupon-single featured">
                     <div class="row">
-                        <?php if ($product->new == 1): ?>
-                            <div class="ribbon-wrapper hidden-xs">
-                                <div class="ribbon">Новое</div>
-                            </div>
-                        <?php endif; ?>
                         <div class="coupon-data col-sm-2 text-center">
                             <div class="savings text-center">
                                 <div style="height: 100px; width: 100%;">

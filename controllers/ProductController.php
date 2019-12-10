@@ -42,7 +42,7 @@ class ProductController extends AppController
 
         $pages = new Pagination([
             'totalCount' => $query->count(),
-            'pageSize' => 5,
+            'pageSize' => 8,
             'forcePageParam' => false,
             'pageSizeParam' => false
         ]);

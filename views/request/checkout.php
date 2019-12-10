@@ -97,7 +97,13 @@ if (Yii::$app->session->hasFlash('checkout-data')) {
                         <div class="col-md-7">{input}</div>
                 '])->textarea(['rows' => 2, 'class' => 'form-control', 'value' => $comment]); ?>
                 </fieldset>
-                <?= Html::submitButton('Оформить заказ', ['class' => 'btn btn-danger']); ?>
+
+                <?php if (Yii::$app->user->isGuest): ?>
+                    <span class="text-danger">Чтобы оформить заказ вы должны быть зарегестрированы</span>
+                <?php else: ?>
+                    <?= Html::submitButton('Оформить заказ', ['class' => 'btn btn-danger']); ?>
+
+                <?php endif; ?>
                 <?php ActiveForm::end(); ?>
 
             <?php else: ?>

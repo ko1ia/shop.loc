@@ -46,7 +46,12 @@ $this->title = 'Корзина'
                 <?php endif; ?>
             </div>
         </div>
-        <a href="/order/checkout" class="btn btn-danger">Оформить заказ</a>
+        <?php if (Yii::$app->user->isGuest): ?>
+            <span class="text-danger">Чтобы оформить заказ вы должны быть <a href="/register" style="color: dodgerblue;">зарегестрированы</a></span>
+        <?php else: ?>
+            <a href="/order/checkout" class="btn btn-danger">Оформить заказ</a>
+        <?php endif; ?>
+
         <a href="<?= Url::to(['basket/clear']) ?>" class="btn btn-default">Очистить корзину</a>
     </div>
 </section>
