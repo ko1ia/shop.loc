@@ -23,8 +23,9 @@ class AdminController extends AppController
         $this->setMetaTags('Админка');
         $product_count = count(Product::find()->all());
         $users_count = count(User::find()->all());
-        $order_count = count(Request::find()->all());
-        return $this->render('index', compact('product_count', 'users_count', 'order_count'));
+        $orderNew_count = count(Request::find()->where(['status' => 0])->all());
+        $orderProcess_count = count(Request::find()->where(['IN', 'status', [1,2,3]])->all());
+        return $this->render('index', compact('product_count', 'users_count', 'orderNew_count', 'orderProcess_count'));
     }
 
 

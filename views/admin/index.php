@@ -30,9 +30,18 @@ $this->title = 'Админ панель';
     <div class="col col-sm-4">
         <div class="panel panel-danger">
             <div class="panel-heading">
-                <h3 class="panel-title">Заказов</h3>
+                <h3 class="panel-title">Новых заказов</h3>
             </div>
-            <div class="panel-body"><h1><?= $order_count ?></h1></div>
+            <div class="panel-body"><h1><?= $orderNew_count ?></h1></div>
+        </div>
+    </div>
+
+    <div class="col col-sm-4">
+        <div class="panel panel-warning">
+            <div class="panel-heading">
+                <h3 class="panel-title">Заказы в работе</h3>
+            </div>
+            <div class="panel-body"><h1><?= $orderProcess_count ?></h1></div>
         </div>
     </div>
 <?php $this->endContent(); ?>
