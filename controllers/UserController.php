@@ -18,6 +18,8 @@ use yii\web\Controller;
 
 class UserController extends AppController
 {
+
+//    Авторизация
     public function actionLogin()
     {
         if (!Yii::$app->user->isGuest) {
@@ -35,6 +37,7 @@ class UserController extends AppController
         ]);
     }
 
+//    Регистрация
     public function actionRegister()
     {
         if(!Yii::$app->user->isGuest) {
@@ -60,6 +63,7 @@ class UserController extends AppController
         ]);
     }
 
+//    Личный кабинет
     public function actionCabinet()
     {
         $this->setMetaTags('Кабинет');
@@ -68,11 +72,7 @@ class UserController extends AppController
         return $this->render('cabinet', ['orders' => $order]);
     }
 
-    /**
-     * Logout action.
-     *
-     * @return Response
-     */
+//    Выход
     public function actionLogout()
     {
         Yii::$app->user->logout();

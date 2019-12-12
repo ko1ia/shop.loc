@@ -20,6 +20,7 @@ use yii\web\UploadedFile;
 class ProductController extends AppController
 {
 
+//    Поиск товара
     public function actionSearch()
     {
         if (Yii::$app->request->isPost) {
@@ -30,7 +31,7 @@ class ProductController extends AppController
         }
     }
 
-
+//    Список товаров
     public function actionCategory($category = null)
     {
         $categories = Category::find()->where(['id_parent' => null])->all();
@@ -72,6 +73,7 @@ class ProductController extends AppController
         ]);
     }
 
+//    Показать один продукт
     public function actionProduct($slug)
     {
         if(is_numeric($slug)) {
@@ -92,6 +94,7 @@ class ProductController extends AppController
         ]);
     }
 
+//    Вспомогающая функция, работа с SEO
     function keywords($text, $repeatWordCount = 3, $minWordLength = 1) {
         $chars = ['!','#','.','?',',']; // символы для удаления
         $text_ok = str_replace($chars, '', $text);
@@ -121,6 +124,8 @@ class ProductController extends AppController
 
         return $str;
     }
+
+//    Создание товара
     public function actionCreate()
     {
         $model = new Product();

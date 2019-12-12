@@ -17,6 +17,8 @@ use yii\web\Controller;
 
 class RequestController extends AppController
 {
+
+//    Оформление заказа
     public function actionCheckout()
     {
         $this->setMetaTags('Оформление заказа');

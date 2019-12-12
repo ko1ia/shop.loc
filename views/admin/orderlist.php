@@ -58,7 +58,7 @@ use yii\helpers\Html; ?>
                 'template' => '{delete}',
                 'buttons' => [
                     'delete' => function ($url,$model) {
-                        $url = '/admin/deleteorder?id='. $model->id;
+                        $url = '/admin/processorder?id='. $model->id;
                         return Html::a(
                             'Обработать</span>',
                             $url);

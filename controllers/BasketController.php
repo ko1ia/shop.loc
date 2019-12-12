@@ -15,11 +15,13 @@ use yii\web\Controller;
 
 class BasketController extends AppController {
 
+//    Страница корзины
     public function actionIndex() {
         $basket = (new Basket())->getBasket();
         return $this->render('index', ['basket' => $basket]);
     }
 
+//    Добавить в корзину
     public function actionAdd() {
 
         $basket = new Basket();
@@ -47,6 +49,7 @@ class BasketController extends AppController {
         }
     }
 
+//    Удалить из корзины
     public function actionRemove($id) {
         $basket = new Basket();
         $basket->removeFromBasket($id);
@@ -64,12 +67,14 @@ class BasketController extends AppController {
         }
     }
 
+//    Очистить корзину
     public function actionClear() {
         $basket = new Basket();
         $basket->clearBasket();
         return $this->render('index');
     }
 
+//    Получить корзину
     public function actionGet()
     {
         $basket = new Basket();

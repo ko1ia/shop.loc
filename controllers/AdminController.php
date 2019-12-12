@@ -18,6 +18,8 @@ use yii\web\Controller;
 
 class AdminController extends AppController
 {
+
+//    Админка - главная страница
     public function actionIndex()
     {
         $this->setMetaTags('Админка');
@@ -28,7 +30,7 @@ class AdminController extends AppController
         return $this->render('index', compact('product_count', 'users_count', 'orderNew_count', 'orderProcess_count'));
     }
 
-
+//    Админка - страница пользователей
     public function actionUsers()
     {
         $this->setMetaTags('Список пользователей');
@@ -41,6 +43,7 @@ class AdminController extends AppController
         ]);
     }
 
+//    Админка - страница заказов
     public function actionOrders()
     {
         $this->setMetaTags('Список заказов');
@@ -59,7 +62,8 @@ class AdminController extends AppController
         ]);
     }
 
-    public function actionDeleteorder($id)
+//    Заказ - сменить статус
+    public function actionProcessorder($id)
     {
         $order = Request::findOne($id);
         if(isset($order)) {
@@ -72,7 +76,7 @@ class AdminController extends AppController
     }
 
 
-
+//    Админка - список продуктов
     public function actionProducts()
     {
         $this->setMetaTags('Список продуктов');
@@ -85,6 +89,7 @@ class AdminController extends AppController
         ]);
     }
 
+//    Продукт - редактирование
     public function actionUpdateproduct($id)
     {
         $model = Product::findOne($id);
@@ -98,6 +103,7 @@ class AdminController extends AppController
         ]);
     }
 
+//    Продукт - удалить
     public function actionDeleteproduct($id)
     {
         $product = Product::findOne($id);
